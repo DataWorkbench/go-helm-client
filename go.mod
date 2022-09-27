@@ -1,9 +1,10 @@
-module github.com/mittwald/go-helm-client
+module github.com/DataWorkbench/go-helm-client
 
 go 1.17
 
 require (
 	github.com/golang/mock v1.6.0
+	github.com/mittwald/go-helm-client v0.9.4
 	github.com/spf13/pflag v1.0.5
 	helm.sh/helm/v3 v3.8.0
 	k8s.io/apiextensions-apiserver v0.23.1
@@ -132,4 +133,9 @@ require (
 	sigs.k8s.io/kustomize/api v0.10.1 // indirect
 	sigs.k8s.io/kustomize/kyaml v0.13.0 // indirect
 	sigs.k8s.io/structured-merge-diff/v4 v4.1.2 // indirect
+)
+
+replace (
+	github.com/mittwald/go-helm-client v0.9.4 => ./
+	helm.sh/helm/v3 v3.8.0 => github.com/DataWorkbench/helm/v3 v3.8.0-dataomnis
 )
