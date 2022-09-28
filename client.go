@@ -391,7 +391,7 @@ func (c *HelmClient) uninstallRelease(spec *ChartSpec) error {
 		return err
 	}
 
-	c.DebugLog("release uninstalled, response: %v", resp)
+	c.DebugLog("release uninstalled, response: %+v", resp)
 
 	return nil
 }
@@ -405,7 +405,7 @@ func (c *HelmClient) uninstallReleaseByName(name string) error {
 		return err
 	}
 
-	c.DebugLog("release uninstalled, response: %v", resp)
+	c.DebugLog("release uninstalled, response: %+v", resp)
 
 	return nil
 }
@@ -877,4 +877,6 @@ func mergeUpgradeOptions(chartSpec *ChartSpec, upgradeOptions *action.Upgrade) {
 func mergeUninstallReleaseOptions(chartSpec *ChartSpec, uninstallReleaseOptions *action.Uninstall) {
 	uninstallReleaseOptions.DisableHooks = chartSpec.DisableHooks
 	uninstallReleaseOptions.Timeout = chartSpec.Timeout
+	uninstallReleaseOptions.Wait = chartSpec.Wait
+	uninstallReleaseOptions.DryRun = chartSpec.DryRun
 }
